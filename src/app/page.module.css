@@ -100,22 +100,6 @@ a.primary {
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
-.footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
-}
-
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer img {
-  flex-shrink: 0;
-}
-
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   a.primary:hover {
@@ -127,11 +111,6 @@ a.primary {
     background: var(--button-secondary-hover);
     border-color: transparent;
     color: black;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
   }
 }
 
@@ -161,12 +140,6 @@ a.primary {
 
   a.secondary {
     min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
   }
 }
 
