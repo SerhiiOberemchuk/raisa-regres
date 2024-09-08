@@ -14,7 +14,8 @@
   padding: 80px;
   gap: 64px;
   font-family: var(--font-geist-sans);
-  background-image: url("/images/planeta-zemlja-vid-iz-kosmosa.jpg");
+  /* background-image: url("/images/planeta-zemlja-vid-iz-kosmosa.jpg"); */
+  background-color: #ffefdc;
   background-size: cover;
   background-repeat: no-repeat;
 }
