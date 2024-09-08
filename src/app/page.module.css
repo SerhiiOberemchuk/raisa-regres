@@ -14,6 +14,9 @@
   padding: 80px;
   gap: 64px;
   font-family: var(--font-geist-sans);
+  background-image: url("/images/planeta-zemlja-vid-iz-kosmosa.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -42,6 +45,7 @@
   line-height: 24px;
   letter-spacing: -0.01em;
   list-style-position: inside;
+  color: #f2f2f2;
 }
 
 .main li:not(:last-of-type) {
@@ -55,7 +59,9 @@
   border-radius: 4px;
   font-weight: 600;
 }
-
+.author {
+  color: goldenrod;
+}
 .ctas {
   display: flex;
   gap: 16px;
@@ -84,9 +90,13 @@ a.primary {
   gap: 8px;
 }
 
-a.secondary {
+.secondary {
+  border-radius: 20px;
+  background-color: transparent;
   border-color: var(--gray-alpha-200);
   min-width: 180px;
+  border-color: chartreuse;
+  cursor: pointer;
 }
 
 .footer {
@@ -112,7 +122,7 @@ a.secondary {
     border-color: transparent;
   }
 
-  a.secondary:hover {
+  .secondary:hover {
     background: var(--button-secondary-hover);
     border-color: transparent;
   }
