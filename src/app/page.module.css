@@ -95,8 +95,9 @@ a.primary {
   background-color: transparent;
   border-color: var(--gray-alpha-200);
   min-width: 180px;
-  border-color: chartreuse;
+  color: goldenrod;
   cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
 .footer {
@@ -125,6 +126,7 @@ a.primary {
   .secondary:hover {
     background: var(--button-secondary-hover);
     border-color: transparent;
+    color: black;
   }
 
   .footer a:hover {
