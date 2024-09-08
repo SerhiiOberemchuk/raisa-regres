@@ -1,7 +1,5 @@
 import React from "react";
 
-type Props = {};
-
-export default function Readme({}: Props) {
+export default function Readme() {
   return <div>Readme</div>;
 }
