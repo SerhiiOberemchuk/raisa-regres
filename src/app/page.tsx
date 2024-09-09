@@ -1,12 +1,13 @@
-import Image from "next/image";
 import styles from "./page.module.css";
 import { Footer } from "@/components/Footer/Footer";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
+    <>
       <main className={styles.main}>
-        <h1 className={styles.author}>Raisa Oberemchuk</h1>
+        <h1 className={styles.author}>
+          Raisa Oberemchuk - Професійні послуги регресії
+        </h1>
         <ol className={styles.servicesList}>
           <li>Регресія</li>
           <li>Прогресія</li>
@@ -24,6 +25,6 @@ export default function Home() {
         </div>
       </main>
       <Footer />
-    </div>
+    </>
   );
 }
