@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <h1 className={styles.author}>Раїса Оберемчук</h1>
+        <h1 className={styles.author}>Raisa Oberemchuk</h1>
         <ol className={styles.servicesList}>
           <li>Регресія</li>
           <li>Прогресія</li>
@@ -14,21 +14,10 @@ export default function Home() {
         </ol>
 
         <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
+          <a className={styles.primary} href="tel:+380971768196">
             Замов своє світле майбутнє
           </a>
+
           <button type="button" className={styles.secondary}>
             Читати умови
           </button>
