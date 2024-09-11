@@ -16,7 +16,7 @@ export default function Home() {
 
         <div className={styles.ctas}>
           <a className={styles.primary} href="tel:+380971768196">
-            Замов своє світле майбутнє
+            Замов своє світле майбутнє +380971768196
           </a>
 
           <button type="button" className={styles.secondary}>

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://raisa-regres.vercel.app
+
+# Sitemaps
+Sitemap: https://raisa-regres.vercel.app/sitemap.xml

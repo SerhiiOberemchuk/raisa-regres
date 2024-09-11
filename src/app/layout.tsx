@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Head from "next/head";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -19,26 +18,26 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Regress - Професійна регресія та прогресія",
   description:
-    "Замовте професійну регресію і прогресію з гарантованим результатом. Дізнайтесь більше про умови роботи.",
+    "Regress - Професійна регресія та прогресія для особистого розвитку, Ласкаво просимо на сайт 'Regress' – вашого надійного партнера у сфері професійних послуг регресії та прогресії. Ми спеціалізуємося на наданні високоякісних консультацій та сеансів, що допомагають вам краще зрозуміти свій минулий досвід і використовувати його для побудови успішного майбутнього. Наші експерти надають індивідуальні послуги, спрямовані на глибоке самопізнання та усвідомлене управління майбутнім. Основні послуги 'Regress' включають: Регресія в минуле життя – допомагаємо знайти відповіді на глибокі питання про ваші минулі втілення. Прогресія у майбутнє – дізнайтесь більше про ймовірні шляхи розвитку вашого життя та кар'єри. Консультації для особистого розвитку – наші спеціалісти працюють з вами, щоб виявити приховані можливості та розкрити ваш потенціал. Ми гарантуємо професійний підхід, конфіденційність та точність у кожному сеансі. Замовляючи наші послуги, ви робите перший крок до кращого розуміння себе та покращення свого життя. Звертайтеся до нас через зручні канали зв'язку та дізнайтеся більше про наші послуги. Відвідайте наш сайт і зробіть перший крок до трансформації свого життя з 'Regress' – вашим провідником у світ професійної регресії та прогресії.",
   openGraph: {
     title: "Regress - Професійні послуги",
     description:
       "Регресія, прогресія та інші професійні послуги для вашого світлого майбутнього.",
-    url: "https://yourwebsite.com",
+    url: "https://raisa-regres.vercel.app/",
     type: "website",
-    images: [
-      {
-        url: "https://yourwebsite.com/og-image.jpg",
-        alt: "Regress Services",
-      },
-    ],
+    // images: [
+    //   {
+    //     url: "https://raisa-regres.vercel.app/og-image.jpg",
+    //     alt: "Regress Services",
+    //   },
+    // ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Regress - Професійна регресія",
-    description: "Професійна регресія та прогресія для вашого майбутнього.",
-    images: "https://yourwebsite.com/twitter-image.jpg",
-  },
+  // twitter: {
+  //   card: "summary_large_image",
+  //   title: "Regress - Професійна регресія",
+  //   description: "Професійна регресія та прогресія для вашого майбутнього.",
+  //   images: "https://raisa-regres.vercel.app/twitter-image.jpg",
+  // },
 };
 
 export default function RootLayout({
@@ -48,33 +47,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <title>Regress</title>
-
-        <meta name="description" content="Професійна регресія та прогресія" />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Regress",
-              url: "https://yourwebsite.com",
-              logo: "https://yourwebsite.com/logo.jpg",
-              contactPoint: {
-                "@type": "ContactPoint",
-                telephone: "+380971768196",
-                contactType: "Customer Service",
-              },
-              sameAs: [
-                "https://www.facebook.com/yourpage",
-                "https://www.instagram.com/yourprofile",
-              ],
-            }),
-          }}
-        />
-      </Head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>
