@@ -9,15 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "14.2.8",
+    "@babel/runtime": "^7.25.6",
+    "@react-three/fiber": "^8.17.7",
+    "next": "^14.2.11",
     "next-sitemap": "^4.2.3",
+    "npm": "^10.8.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "three": "^0.168.0",
+    "three-nebula": "^10.0.3",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/three": "^0.168.0",
+    "@types/three-nebula": "^10.0.4",
     "eslint": "^8",
     "eslint-config-next": "14.2.8",
     "typescript": "^5"

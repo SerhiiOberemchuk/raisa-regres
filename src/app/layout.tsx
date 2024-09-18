@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import WebGLFluidSimulation from "../components/Canvas/Simulation";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,19 +26,7 @@ export const metadata: Metadata = {
       "Регресія, прогресія та інші професійні послуги для вашого світлого майбутнього.",
     url: "https://raisa-regres.vercel.app/",
     type: "website",
-    // images: [
-    //   {
-    //     url: "https://raisa-regres.vercel.app/og-image.jpg",
-    //     alt: "Regress Services",
-    //   },
-    // ],
   },
-  // twitter: {
-  //   card: "summary_large_image",
-  //   title: "Regress - Професійна регресія",
-  //   description: "Професійна регресія та прогресія для вашого майбутнього.",
-  //   images: "https://raisa-regres.vercel.app/twitter-image.jpg",
-  // },
 };
 
 export default function RootLayout({
@@ -48,6 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <WebGLFluidSimulation />
         {children}
       </body>
     </html>
