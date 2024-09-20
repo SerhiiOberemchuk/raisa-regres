@@ -815,12 +815,25 @@ const WebGLFluidSimulation = () => {
       }
     }
 
-    window.addEventListener("mousemove", (e) => {
+    document.addEventListener("mousemove", (e) => {
+      //   pointers[0].moved = pointers[0].down;
+      //   pointers[0].dx = (e.offsetX - pointers[0].x) * 10.0;
+      //   pointers[0].dy = (e.offsetY - pointers[0].y) * 10.0;
+      //   pointers[0].x = e.offsetX;
+      //   pointers[0].y = e.offsetY;
+
+      const canvasRect = canvas.getBoundingClientRect();
+
+      const x = e.clientX - canvasRect.left;
+      const y = e.clientY - canvasRect.top;
+
       pointers[0].moved = pointers[0].down;
-      pointers[0].dx = (e.offsetX - pointers[0].x) * 10.0;
-      pointers[0].dy = (e.offsetY - pointers[0].y) * 10.0;
-      pointers[0].x = e.offsetX;
-      pointers[0].y = e.offsetY;
+      pointers[0].dx = (x - pointers[0].x) * 10.0;
+      pointers[0].dy = (y - pointers[0].y) * 10.0;
+      pointers[0].x = x;
+      pointers[0].y = y;
+
+      //--------------------------------------//
       pointers[0].down = true;
       pointers[0].color = [
         Math.random() + 0.2,
@@ -829,7 +842,7 @@ const WebGLFluidSimulation = () => {
       ];
     });
 
-    window.addEventListener(
+    document.addEventListener(
       "touchmove",
       (e) => {
         e.preventDefault();
@@ -846,9 +859,9 @@ const WebGLFluidSimulation = () => {
       false
     );
 
-    window.addEventListener("mousedown", () => {});
+    document.addEventListener("mousedown", () => {});
 
-    window.addEventListener("touchstart", (e) => {
+    document.addEventListener("touchstart", (e) => {
       e.preventDefault();
       const touches = e.targetTouches;
       for (let i = 0; i < touches.length; i++) {
@@ -866,11 +879,11 @@ const WebGLFluidSimulation = () => {
       }
     });
 
-    window.addEventListener("mouseup", () => {
+    document.addEventListener("mouseup", () => {
       pointers[0].down = false;
     });
 
-    window.addEventListener("touchend", (e) => {
+    document.addEventListener("touchend", (e) => {
       const touches = e.changedTouches;
       for (let i = 0; i < touches.length; i++)
         for (let j = 0; j < pointers.length; j++)
