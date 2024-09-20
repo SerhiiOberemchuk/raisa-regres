@@ -948,7 +948,7 @@ const WebGLFluidSimulation = () => {
       }
     });
 
-    document.addEventListener("touchend", (e) => {
+    document.addEventListener("touchend", () => {
       isTouchActive = false; // Вимикає стан дотику
     });
 
