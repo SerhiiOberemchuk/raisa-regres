@@ -844,39 +844,82 @@ const WebGLFluidSimulation = () => {
 
     document.addEventListener(
       "touchmove",
+      //   (e) => {
+      //     e.preventDefault();
+      //     const touches = e.targetTouches;
+      //     for (let i = 0; i < touches.length; i++) {
+      //       let pointer = pointers[i];
+      //       pointer.moved = pointer.down;
+      //       pointer.dx = (touches[i].pageX - pointer.x) * 10.0;
+      //       pointer.dy = (touches[i].pageY - pointer.y) * 10.0;
+      //       pointer.x = touches[i].pageX;
+      //       pointer.y = touches[i].pageY;
+      //     }
+      //   },
+      //   false
+
       (e) => {
         e.preventDefault();
         const touches = e.targetTouches;
+        const canvasRect = canvas.getBoundingClientRect();
+
         for (let i = 0; i < touches.length; i++) {
           let pointer = pointers[i];
+          const x = touches[i].pageX - canvasRect.left;
+          const y = touches[i].pageY - canvasRect.top;
+
           pointer.moved = pointer.down;
-          pointer.dx = (touches[i].pageX - pointer.x) * 10.0;
-          pointer.dy = (touches[i].pageY - pointer.y) * 10.0;
-          pointer.x = touches[i].pageX;
-          pointer.y = touches[i].pageY;
+          pointer.dx = (x - pointer.x) * 10.0;
+          pointer.dy = (y - pointer.y) * 10.0;
+          pointer.x = x;
+          pointer.y = y;
         }
       },
       false
     );
 
-    document.addEventListener("mousedown", () => {});
+    document.addEventListener("mousedown", () => {
+      pointers[0].down = true;
+      pointers[0].color = [
+        Math.random() + 0.2,
+        Math.random() + 0.2,
+        Math.random() + 0.2,
+      ];
+    });
 
     document.addEventListener("touchstart", (e) => {
       e.preventDefault();
       const touches = e.targetTouches;
+      const canvasRect = canvas.getBoundingClientRect();
       for (let i = 0; i < touches.length; i++) {
         if (i >= pointers.length) pointers.push(new pointerPrototype());
 
+        const x = touches[i].pageX - canvasRect.left;
+        const y = touches[i].pageY - canvasRect.top;
+
         pointers[i].id = touches[i].identifier;
         pointers[i].down = true;
-        pointers[i].x = touches[i].pageX;
-        pointers[i].y = touches[i].pageY;
+        pointers[i].x = x;
+        pointers[i].y = y;
         pointers[i].color = [
           Math.random() + 0.2,
           Math.random() + 0.2,
           Math.random() + 0.2,
         ];
       }
+      //   for (let i = 0; i < touches.length; i++) {
+      //     if (i >= pointers.length) pointers.push(new pointerPrototype());
+
+      //     pointers[i].id = touches[i].identifier;
+      //     pointers[i].down = true;
+      //     pointers[i].x = touches[i].pageX;
+      //     pointers[i].y = touches[i].pageY;
+      //     pointers[i].color = [
+      //       Math.random() + 0.2,
+      //       Math.random() + 0.2,
+      //       Math.random() + 0.2,
+      //     ];
+      //   }
     });
 
     document.addEventListener("mouseup", () => {
