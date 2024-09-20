@@ -842,42 +842,6 @@ const WebGLFluidSimulation = () => {
       ];
     });
 
-    document.addEventListener(
-      "touchmove",
-      //   (e) => {
-      //     e.preventDefault();
-      //     const touches = e.targetTouches;
-      //     for (let i = 0; i < touches.length; i++) {
-      //       let pointer = pointers[i];
-      //       pointer.moved = pointer.down;
-      //       pointer.dx = (touches[i].pageX - pointer.x) * 10.0;
-      //       pointer.dy = (touches[i].pageY - pointer.y) * 10.0;
-      //       pointer.x = touches[i].pageX;
-      //       pointer.y = touches[i].pageY;
-      //     }
-      //   },
-      //   false
-
-      (e) => {
-        e.preventDefault();
-        const touches = e.targetTouches;
-        const canvasRect = canvas.getBoundingClientRect();
-
-        for (let i = 0; i < touches.length; i++) {
-          let pointer = pointers[i];
-          const x = touches[i].pageX - canvasRect.left;
-          const y = touches[i].pageY - canvasRect.top;
-
-          pointer.moved = pointer.down;
-          pointer.dx = (x - pointer.x) * 10.0;
-          pointer.dy = (y - pointer.y) * 10.0;
-          pointer.x = x;
-          pointer.y = y;
-        }
-      },
-      false
-    );
-
     document.addEventListener("mousedown", () => {
       pointers[0].down = true;
       pointers[0].color = [
@@ -887,51 +851,129 @@ const WebGLFluidSimulation = () => {
       ];
     });
 
-    document.addEventListener("touchstart", (e) => {
-      e.preventDefault();
-      const touches = e.targetTouches;
-      const canvasRect = canvas.getBoundingClientRect();
-      for (let i = 0; i < touches.length; i++) {
-        if (i >= pointers.length) pointers.push(new pointerPrototype());
-
-        const x = touches[i].pageX - canvasRect.left;
-        const y = touches[i].pageY - canvasRect.top;
-
-        pointers[i].id = touches[i].identifier;
-        pointers[i].down = true;
-        pointers[i].x = x;
-        pointers[i].y = y;
-        pointers[i].color = [
-          Math.random() + 0.2,
-          Math.random() + 0.2,
-          Math.random() + 0.2,
-        ];
-      }
-      //   for (let i = 0; i < touches.length; i++) {
-      //     if (i >= pointers.length) pointers.push(new pointerPrototype());
-
-      //     pointers[i].id = touches[i].identifier;
-      //     pointers[i].down = true;
-      //     pointers[i].x = touches[i].pageX;
-      //     pointers[i].y = touches[i].pageY;
-      //     pointers[i].color = [
-      //       Math.random() + 0.2,
-      //       Math.random() + 0.2,
-      //       Math.random() + 0.2,
-      //     ];
-      //   }
-    });
-
     document.addEventListener("mouseup", () => {
       pointers[0].down = false;
     });
 
-    document.addEventListener("touchend", (e) => {
-      const touches = e.changedTouches;
-      for (let i = 0; i < touches.length; i++)
-        for (let j = 0; j < pointers.length; j++)
-          if (touches[i].identifier == pointers[j].id) pointers[j].down = false;
+    // document.addEventListener(
+    //   "touchmove",
+    //   //   (e) => {
+    //   //     e.preventDefault();
+    //   //     const touches = e.targetTouches;
+    //   //     for (let i = 0; i < touches.length; i++) {
+    //   //       let pointer = pointers[i];
+    //   //       pointer.moved = pointer.down;
+    //   //       pointer.dx = (touches[i].pageX - pointer.x) * 10.0;
+    //   //       pointer.dy = (touches[i].pageY - pointer.y) * 10.0;
+    //   //       pointer.x = touches[i].pageX;
+    //   //       pointer.y = touches[i].pageY;
+    //   //     }
+    //   //   },
+    //   //   false
+
+    //   (e) => {
+    //     e.preventDefault();
+    //     const touches = e.targetTouches;
+    //     const canvasRect = canvas.getBoundingClientRect();
+
+    //     for (let i = 0; i < touches.length; i++) {
+    //       let pointer = pointers[i];
+    //       const x = touches[i].pageX - canvasRect.left;
+    //       const y = touches[i].pageY - canvasRect.top;
+
+    //       pointer.moved = pointer.down;
+    //       pointer.dx = (x - pointer.x) * 10.0;
+    //       pointer.dy = (y - pointer.y) * 10.0;
+    //       pointer.x = x;
+    //       pointer.y = y;
+    //     }
+    //   },
+    //   false
+    // );
+
+    // document.addEventListener("touchstart", (e) => {
+    //   e.preventDefault();
+    //   const touches = e.targetTouches;
+    //   const canvasRect = canvas.getBoundingClientRect();
+    //   for (let i = 0; i < touches.length; i++) {
+    //     if (i >= pointers.length) pointers.push(new pointerPrototype());
+
+    //     const x = touches[i].pageX - canvasRect.left;
+    //     const y = touches[i].pageY - canvasRect.top;
+
+    //     pointers[i].id = touches[i].identifier;
+    //     pointers[i].down = true;
+    //     pointers[i].x = x;
+    //     pointers[i].y = y;
+    //     pointers[i].color = [
+    //       Math.random() + 0.2,
+    //       Math.random() + 0.2,
+    //       Math.random() + 0.2,
+    //     ];
+    //   }
+    //   //   for (let i = 0; i < touches.length; i++) {
+    //   //     if (i >= pointers.length) pointers.push(new pointerPrototype());
+
+    //   //     pointers[i].id = touches[i].identifier;
+    //   //     pointers[i].down = true;
+    //   //     pointers[i].x = touches[i].pageX;
+    //   //     pointers[i].y = touches[i].pageY;
+    //   //     pointers[i].color = [
+    //   //       Math.random() + 0.2,
+    //   //       Math.random() + 0.2,
+    //   //       Math.random() + 0.2,
+    //   //     ];
+    //   //   }
+    // });
+
+    // document.addEventListener("touchend", (e) => {
+    //   const touches = e.changedTouches;
+    //   for (let i = 0; i < touches.length; i++)
+    //     for (let j = 0; j < pointers.length; j++)
+    //       if (touches[i].identifier == pointers[j].id) pointers[j].down = false;
+    // });
+
+    let isTouchActive = false;
+
+    document.addEventListener("touchstart", (e) => {
+      e.preventDefault(); // Запобігає прокручуванню сторінки при дотику
+      isTouchActive = true; // Активує дотик
+      handleTouchMove(e); // Викликає обробник для обчислення положення пальця
     });
+
+    document.addEventListener("touchmove", (e) => {
+      if (isTouchActive) {
+        e.preventDefault(); // Запобігає стандартній поведінці
+        handleTouchMove(e); // Викликає функцію обробки руху пальця
+      }
+    });
+
+    document.addEventListener("touchend", (e) => {
+      isTouchActive = false; // Вимикає стан дотику
+    });
+
+    // Функція для обробки руху пальця
+    function handleTouchMove(e) {
+      const touches = e.targetTouches;
+      const canvasRect = canvas.getBoundingClientRect();
+
+      for (let i = 0; i < touches.length; i++) {
+        const x = touches[i].clientX - canvasRect.left;
+        const y = touches[i].clientY - canvasRect.top;
+        let pointer = pointers[i] || new pointerPrototype(); // Якщо це новий дотик
+
+        pointer.moved = true;
+        pointer.dx = (x - pointer.x) * 10.0;
+        pointer.dy = (y - pointer.y) * 10.0;
+        pointer.x = x;
+        pointer.y = y;
+
+        // Ваш код для обробки ефекту
+        // console.log(
+        //   `Touch at (${x}, ${y}) with delta (${pointer.dx}, ${pointer.dy})`
+        // );
+      }
+    }
   }, []);
 
   return <canvas ref={canvasRef} />;
