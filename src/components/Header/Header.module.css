@@ -1,0 +1,12 @@
+.header {
+  position: sticky;
+  top: 0;
+  background-color: rgba(245, 245, 220, 0.766);
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+.navList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

@@ -1,0 +1,17 @@
+.titleSection {
+  width: 100%;
+  color: var(--text-color);
+  /* border: solid 1px;
+  background-color: rgba(251, 251, 251, 0.255); */
+  display: flex;
+  justify-content: space-around;
+}
+
+.author {
+  font-weight: 900;
+  color: rgba(55, 253, 0, 0.99);
+}
+
+.title {
+  background-color: rgba(245, 245, 220, 0.766);
+}

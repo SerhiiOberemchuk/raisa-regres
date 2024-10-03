@@ -19,9 +19,13 @@ export default function Home() {
             Замов своє світле майбутнє +380971768196
           </a>
 
-          <button type="button" className={styles.secondary}>
+          <a
+            href="http://project10718335.tilda.ws"
+            target="_blank"
+            className={styles.secondary}
+          >
             Читати умови
-          </button>
+          </a>
         </div>
       </main>
       <Footer />
